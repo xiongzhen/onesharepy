@@ -208,9 +208,7 @@ if __name__ == '__main__':
     browse_button.grid(row=0, column=2, sticky=tk.W, padx=5, pady=5)
 
     # --- Field 3: "链接" (Link) ---
-    http_link = tk.StringVar()    
-    # http_link.set("https://1drv.ms/f/c/9cd73d5e60c6d228/EijSxmBePdcggJx_AAAAAAABpyOtZkdG72BbHejBk31_-w?e=7SzuHI")
-    http_link.set("https://1drv.ms/f/c/9cd73d5e60c6d228/ElWtNuHB051OkCh2RaJPFh4Bx7rL2WLFAcfGbLgQaoDj5Q?e=7An2SA")
+    http_link = tk.StringVar()
 
     def open_link():
         bytes_downloaded.reset()
