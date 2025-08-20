@@ -7,5 +7,5 @@ setup(
     description="Download shared personal onedrive files.",
     packages=find_packages(),
     python_requires=">=3.13",
-    install_requires=['aiohttp'],
+    install_requires=['aiohttp', 'requests'],
 )
