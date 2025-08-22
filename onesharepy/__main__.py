@@ -315,7 +315,10 @@ if __name__ == '__main__':
         context_menu.add_command(label="下载所选项", command=download_selected)
         def show_context_menu(event):
             context_menu.post(event.x_root, event.y_root)
-        tv.bind("<Button-3>", lambda event: show_context_menu(event))
+        if sys.platform == 'win32':
+            tv.bind("<Button-3>", lambda event: show_context_menu(event))
+        else:
+            tv.bind("<Button-2>", lambda event: show_context_menu(event))
 
         root.minsize(500, 300)        
         root.lift()
