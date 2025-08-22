@@ -1,10 +1,14 @@
 # onesharepy
-Download shared personal onedrive files: https://1drv.ms/*
+Download personal onedrive files.
 
 ## Installation
 
 ```bash
 pip install git+https://github.com/xiongzhen/onesharepy.git
+```
+or
+```bash
+pip install onesharepy
 ```
 
 ## Usage
