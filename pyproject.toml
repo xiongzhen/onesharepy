@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "onesharepy"
-version = "0.0.3"
+version = "0.0.4"
 description = "Download personal onedrive files."
 readme = "README.md"
 license = { file = "LICENSE" }
