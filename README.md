@@ -2,6 +2,10 @@
 Download personal onedrive files.
 
 ## Installation
+```bash
+pip install onesharepy
+```
+or
 
 ```bash
 pip install git+https://github.com/xiongzhen/onesharepy.git
