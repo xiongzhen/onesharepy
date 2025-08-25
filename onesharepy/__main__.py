@@ -84,18 +84,24 @@ async def fetch_drive_item_next_link(next_link):
                 return []
 
 async def download_file_item(name, url, save_path):
-    save_path = save_path.rstrip('/')
+    async def download_file_item(name, url, save_path):
+    save_path = save_path.rstrip('/') + '/' + name
+    save_path_ex = save_path + ".downloading"
+    ok = False
     async with aiohttp.ClientSession() as session:
         async with session.get(url, ssl=False) as response:
             if response.status == 200:
-                #data = await response.read()
-                with open(save_path + '/' + name, 'w+b') as f:
+                with open(save_path_ex, 'w+b') as f:
                     async for chunk in response.content.iter_any():
                         f.write(chunk)
                         bytes_downloaded.increment(len(chunk))
+                    ok = True
             else:
                 error_body = await response.text()
-                print(f"HTTP Error ({save_path}/{name}): {response.status}\n{error_body}")
+                print(f"HTTP Error ({save_path_ex}): {response.status}\n{error_body}")
+    if ok:
+        Path(save_path_ex).rename(save_path)
+        print(f"已保存: {save_path}")
 
 async def download_driveitem(drive_id, item_id, save_path):  
     url = "https://graph.microsoft.com/v1.0/drives/{}/items/{}/children".format(drive_id, item_id)
